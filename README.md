@@ -28,5 +28,4 @@ Here are some ideas to get you started:
 
 ## 42 Stats
 ### - Pisine , Cursus
-[![jajo's 42 stats](https://badge42.coday.fr/api/v2/clvdkubj02288601p4c8pe30ep/stats?cursusId=9&coalitionId=piscine)](https://github.com/Coday-meric/badge42)
-[![jajo's 42 stats](https://badge42.coday.fr/api/v2/clvdkubj02288601p4c8pe30ep/stats?cursusId=21&coalitionId=454)](https://github.com/Coday-meric/badge42)
+[![jajo's 42 stats](https://badge42.coday.fr/api/v2/clvdkubj02288601p4c8pe30ep/stats?cursusId=9&coalitionId=piscine)](https://github.com/Coday-meric/badge42)[![jajo's 42 stats](https://badge42.coday.fr/api/v2/clvdkubj02288601p4c8pe30ep/stats?cursusId=21&coalitionId=454)](https://github.com/Coday-meric/badge42)
