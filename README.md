@@ -14,7 +14,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-
+## Git Stats
+![JaeYoung's GitHub stats](https://github-readme-stats.vercel.app/api?username=joejaeyoung&show_icons=true&theme=dracula)
 ## Skills
 <p>
   &nbsp  
