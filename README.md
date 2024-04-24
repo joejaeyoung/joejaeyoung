@@ -27,8 +27,6 @@ Here are some ideas to get you started:
 [![코드트리|실력진단-whwodud0303](https://banner.codetree.ai/v1/banner/whwodud0303)](https://www.codetree.ai/profiles/whwodud0303)
 
 ## 42 Stats
-### - Pisine
+### - Pisine , Cursus
 [![jajo's 42 stats](https://badge42.coday.fr/api/v2/clvdkubj02288601p4c8pe30ep/stats?cursusId=9&coalitionId=piscine)](https://github.com/Coday-meric/badge42)
-
-### - Cursus
 [![jajo's 42 stats](https://badge42.coday.fr/api/v2/clvdkubj02288601p4c8pe30ep/stats?cursusId=21&coalitionId=454)](https://github.com/Coday-meric/badge42)
