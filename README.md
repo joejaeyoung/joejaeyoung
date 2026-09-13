@@ -80,7 +80,7 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
   <img src="https://raw.githubusercontent.com/joejaeyoung/joejaeyoung/main/ai-usage.svg" alt="AI pair usage" width="860" />
 </div>
 
-<sub>최근 30일 롤링 집계입니다. 매일 아침 8시에 로컬 launchd가 다시 돌려 갱신합니다. 집계는 <a href="gen_ai_usage.py"><code>gen_ai_usage.py</code></a>, 갱신은 <a href="update-ai-usage.sh"><code>update-ai-usage.sh</code></a>에 있습니다. 비용은 공개 API 단가로 환산한 추정치입니다.</sub>
+<sub>최근 30일 롤링 집계이고, 각 블록에 전체 기간 누적도 함께 적었습니다. 매일 아침 8시에 로컬 launchd가 다시 돌려 갱신합니다. 집계는 <a href="gen_ai_usage.py"><code>gen_ai_usage.py</code></a>, 갱신은 <a href="update-ai-usage.sh"><code>update-ai-usage.sh</code></a>에 있습니다. 비용은 공개 API 단가로 환산한 추정치입니다.</sub>
 
 <br />
 

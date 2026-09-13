@@ -81,7 +81,7 @@ def collect_codex(since=None):
     for dp, _, fn in os.walk(CODEX_ROOT):
         for f in fn:
             if not f.endswith(".jsonl"): continue
-            last, sday, smodels = None, None, set()
+            last, sday, smodels, sturns = None, None, set(), 0
             try: fh = open(os.path.join(dp, f), encoding="utf-8", errors="replace")
             except OSError: continue
             with fh:
@@ -98,10 +98,11 @@ def collect_codex(since=None):
                         except ValueError: continue
                         p = d.get("payload") or {}
                         m = p.get("model") or p.get("model_slug")
-                        if m: smodels.add(m); turns += 1
+                        if m: smodels.add(m); sturns += 1
                         if not sday and d.get("timestamp"): sday = d["timestamp"][:10]
             if last and not (since and sday and sday < since):
                 sessions += 1
+                turns += sturns
                 tk["in"]     += last.get("input_tokens", 0)
                 tk["cached"] += last.get("cached_input_tokens", 0)
                 tk["out"]    += last.get("output_tokens", 0)
@@ -134,6 +135,14 @@ def main():
 
     cl = collect_claude(since)
     cx = collect_codex(since)
+    # 창 밖에 있는 사용까지 같이 보이게 전체 기간도 구한다
+    if since:
+        cl_all, cx_all = collect_claude(None), collect_codex(None)
+    else:
+        cl_all, cx_all = cl, cx
+    cl_all_total = sum(cl_all["tk"].values())
+    cx_all_total = cx_all["tk"]["total"]
+    all_cx_share = cx_all_total / (cl_all_total + cx_all_total) * 100 if (cl_all_total + cx_all_total) else 0
     cl_total = sum(cl["tk"].values())
     cx_total = cx["tk"]["total"]
     if cl_total == 0 and cx_total == 0:
@@ -160,7 +169,7 @@ def main():
     grand = cl_total + cx_total
     cx_share = cx_total / grand * 100 if grand else 0
 
-    W, H = 860, 492
+    W, H = 860, 508
     BG, FG, DIM, AC, AC2, GRID = "#0d1117", "#e6edf3", "#8b949e", "#58a6ff", "#3fb950", "#21262d"
     o = []; a = o.append
     a(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
@@ -176,34 +185,40 @@ def main():
     colw = (W - 56 - 24) / 2
     blocks = [
         ("CLAUDE CODE", "초안 · 구현", AC,
-         [(f"{cl['sessions']:,}", "sessions"), (human(cl["req"]), "requests"), (human(cl_total), "tokens")]),
+         [(f"{cl['sessions']:,}", "sessions"), (human(cl["req"]), "requests"), (human(cl_total), "tokens")],
+         f"누적 {cl_all['sessions']:,} sessions · {human(cl_all_total)} tokens"),
         ("CODEX", "리뷰 · 반증", AC2,
-         [(f"{cx['sessions']:,}", "sessions"), (f"{cx['turns']:,}", "turns"), (human(cx_total), "tokens")]),
+         [(f"{cx['sessions']:,}", "sessions"), (f"{cx['turns']:,}", "turns"), (human(cx_total), "tokens")],
+         f"누적 {cx_all['sessions']:,} sessions · {human(cx_all_total)} tokens"),
     ]
-    for bi, (name, role, col, kpis) in enumerate(blocks):
+    BH2 = 112
+    for bi, (name, role, col, kpis, foot) in enumerate(blocks):
         bx = 28 + bi * (colw + 24)
-        a(f'<rect x="{bx:.0f}" y="92" width="{colw:.0f}" height="96" rx="7" fill="#11161d" stroke="{GRID}"/>')
-        a(f'<rect x="{bx:.0f}" y="92" width="3" height="96" rx="2" fill="{col}"/>')
+        a(f'<rect x="{bx:.0f}" y="92" width="{colw:.0f}" height="{BH2}" rx="7" fill="#11161d" stroke="{GRID}"/>')
+        a(f'<rect x="{bx:.0f}" y="92" width="3" height="{BH2}" rx="2" fill="{col}"/>')
         a(f'<text x="{bx+16:.0f}" y="114" fill="{col}" font-size="12" font-weight="700">{name}</text>')
         a(f'<text x="{bx+colw-16:.0f}" y="114" fill="{DIM}" font-size="11" text-anchor="end">{role}</text>')
         for ki, (val, lab) in enumerate(kpis):
             kx = bx + 16 + ki * ((colw - 32) / 3)
             a(f'<text x="{kx:.0f}" y="152" fill="{FG}" font-size="21" font-weight="700">{val}</text>')
             a(f'<text x="{kx:.0f}" y="171" fill="{DIM}" font-size="10">{lab}</text>')
+        a(f'<line x1="{bx+16:.0f}" y1="180" x2="{bx+colw-16:.0f}" y2="180" stroke="{GRID}"/>')
+        a(f'<text x="{bx+16:.0f}" y="196" fill="{DIM}" font-size="10">{esc(foot)}</text>')
 
     # 토큰 배분
-    a(f'<text x="28" y="216" fill="{DIM}" font-size="10" letter-spacing="1">토큰 배분 — 쓰는 데 몰리고, 검토는 적은 횟수로 정확히</text>')
-    bx, bw, by, bh = 28, W - 56, 226, 13
+    a(f'<text x="28" y="232" fill="{DIM}" font-size="10" letter-spacing="1">토큰 배분 — 쓰는 데 몰리고, 검토는 적은 횟수로 정확히</text>')
+    bx, bw, by, bh = 28, W - 56, 242, 13
     wcl = bw * (cl_total / grand); wcx = max(2.0, bw - wcl)
     a(f'<rect x="{bx}" y="{by}" width="{wcl:.1f}" height="{bh}" rx="2" fill="{AC}"/>')
     a(f'<rect x="{bx+wcl:.1f}" y="{by}" width="{wcx:.1f}" height="{bh}" rx="2" fill="{AC2}"/>')
-    a(f'<text x="28" y="258" fill="{DIM}" font-size="10">Claude {100-cx_share:.1f}%  ·  Codex {cx_share:.1f}%  '
-      f'— 리뷰는 토큰을 적게 쓰지만 되돌린 판단은 여기서 나온다</text>')
+    def sh(v): return f"{v:.2f}%" if (v < 1 or v > 99) else f"{v:.1f}%"
+    a(f'<text x="28" y="274" fill="{DIM}" font-size="10">Claude {sh(100-cx_share)}  ·  Codex {sh(cx_share)}  '
+      f'(누적 Codex {sh(all_cx_share)}) — 리뷰는 토큰을 적게 쓰지만 되돌린 판단은 여기서 나온다</text>')
 
     # Claude 토큰 구성
-    a(f'<text x="28" y="294" fill="{DIM}" font-size="10" letter-spacing="1">CLAUDE 토큰 구성</text>')
+    a(f'<text x="28" y="310" fill="{DIM}" font-size="10" letter-spacing="1">CLAUDE 토큰 구성</text>')
     SEG = [("read", pct["cr"], AC), ("write", pct["cw"], AC2), ("out", pct["out"], "#d29922"), ("in", pct["in"], "#f85149")]
-    by2 = 304; cur = bx
+    by2 = 320; cur = bx
     for _, p, c in SEG:
         w = max(1.2, bw * p / 100)
         a(f'<rect x="{cur:.1f}" y="{by2}" width="{w:.1f}" height="{bh}" fill="{c}"/>')
@@ -211,24 +226,24 @@ def main():
     a(f'<rect x="{bx}" y="{by2}" width="{bw}" height="{bh}" rx="2" fill="none" stroke="{GRID}"/>')
     lx = bx
     for nm, p, c in SEG:
-        a(f'<rect x="{lx}" y="333" width="8" height="8" rx="2" fill="{c}"/>')
-        a(f'<text x="{lx+12}" y="341" fill="{DIM}" font-size="10">{nm} {p:.2f}%</text>')
+        a(f'<rect x="{lx}" y="349" width="8" height="8" rx="2" fill="{c}"/>')
+        a(f'<text x="{lx+12}" y="357" fill="{DIM}" font-size="10">{nm} {p:.2f}%</text>')
         lx += 112
-    a(f'<text x="{W-28}" y="341" fill="{FG}" font-size="10" text-anchor="end">'
+    a(f'<text x="{W-28}" y="357" fill="{FG}" font-size="10" text-anchor="end">'
       f'캐시 재사용 {reuse:.1f}× — 맥락을 다시 올리지 않게 작업을 잘라 둔 결과</text>')
 
     # 모델별
-    a(f'<text x="28" y="378" fill="{DIM}" font-size="10" letter-spacing="1">CLAUDE 모델별</text>')
+    a(f'<text x="28" y="394" fill="{DIM}" font-size="10" letter-spacing="1">CLAUDE 모델별</text>')
     top = rows[0][2] if rows else 1
     for i, (m, r, t, _) in enumerate(rows):
-        y = 398 + i * 20
+        y = 414 + i * 20
         a(f'<text x="28" y="{y}" fill="{FG}" font-size="11">{esc(m)}</text>')
         w = (W - 460) * (t / top)
         a(f'<rect x="190" y="{y-9}" width="{max(2,w):.0f}" height="10" rx="2" fill="{AC}" opacity="{1-i*0.2:.2f}"/>')
         a(f'<text x="{W-140}" y="{y}" fill="{DIM}" font-size="10" text-anchor="end">{human(t)} tok</text>')
         a(f'<text x="{W-28}" y="{y}" fill="{DIM}" font-size="10" text-anchor="end">{r:,} req</text>')
     cxm = " · ".join(m for m, _ in cx["models"].most_common(3))
-    a(f'<text x="{W-28}" y="378" fill="{DIM}" font-size="10" text-anchor="end">CODEX: {esc(cxm)}</text>')
+    a(f'<text x="{W-28}" y="394" fill="{DIM}" font-size="10" text-anchor="end">CODEX: {esc(cxm)}</text>')
     a(f'<text x="28" y="{H-14}" fill="{DIM}" font-size="9" opacity="0.7">'
       f'비용은 공개 API 단가 기준 추정이며 구독 실지출과 다릅니다 · gen_ai_usage.py 로 재생성</text>')
     a('</svg>')
