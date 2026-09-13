@@ -2,7 +2,11 @@
 """
 로컬 AI 코딩 도구의 세션 기록을 집계해 사용량 카드(SVG)를 만든다.
 
-  python3 gen_ai_usage.py > ai-usage.svg
+  python3 gen_ai_usage.py            # 최근 30일
+  python3 gen_ai_usage.py --days 7   # 최근 7일
+  python3 gen_ai_usage.py --days 0   # 전체 기간
+
+기본은 최근 30일 롤링 윈도우다. 매일 아침 launchd가 다시 돌려 갱신한다.
 
 집계 대상
   Claude Code : ~/.claude/projects/**/*.jsonl 의 assistant 메시지 message.usage
@@ -12,7 +16,7 @@
 model 이 <synthetic> 이거나 토큰이 전부 0 인 레코드는 뺀다.
 비용은 공개 API 단가로 환산한 추정치이고 구독 요금제 실지출과 다르다.
 """
-import json, os, sys, collections
+import json, os, sys, collections, datetime, argparse
 
 CLAUDE_ROOT = os.path.expanduser("~/.claude/projects")
 CODEX_ROOT = os.path.expanduser("~/.codex/sessions")
@@ -32,7 +36,7 @@ def tier(model: str) -> str:
     return "sonnet"
 
 
-def collect_claude():
+def collect_claude(since=None):
     sessions, days = set(), set()
     req = 0
     tk = {"in": 0, "out": 0, "cw": 0, "cr": 0}
@@ -58,6 +62,7 @@ def collect_claude():
                     cr = u.get("cache_read_input_tokens") or 0
                     if i + o + cw + cr == 0: continue
                     ts = d.get("timestamp") or ""
+                    if since and ts[:10] and ts[:10] < since: continue
                     if ts[:10]: days.add(ts[:10])
                     if d.get("sessionId"): sessions.add(d["sessionId"])
                     req += 1
@@ -67,7 +72,7 @@ def collect_claude():
     return {"sessions": len(sessions), "days": days, "req": req, "tk": tk, "by_model": by_model}
 
 
-def collect_codex():
+def collect_codex(since=None):
     sessions = 0
     turns = 0
     days = set()
@@ -95,7 +100,7 @@ def collect_codex():
                         m = p.get("model") or p.get("model_slug")
                         if m: smodels.add(m); turns += 1
                         if not sday and d.get("timestamp"): sday = d["timestamp"][:10]
-            if last:
+            if last and not (since and sday and sday < since):
                 sessions += 1
                 tk["in"]     += last.get("input_tokens", 0)
                 tk["cached"] += last.get("cached_input_tokens", 0)
@@ -119,8 +124,16 @@ def esc(s: str) -> str:
 
 
 def main():
-    cl = collect_claude()
-    cx = collect_codex()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--days", type=int, default=30,
+                    help="집계 윈도우(일). 0이면 전체 기간. 기본 30")
+    args = ap.parse_args()
+    since = None
+    if args.days > 0:
+        since = (datetime.date.today() - datetime.timedelta(days=args.days - 1)).isoformat()
+
+    cl = collect_claude(since)
+    cx = collect_codex(since)
     cl_total = sum(cl["tk"].values())
     cx_total = cx["tk"]["total"]
     if cl_total == 0 and cx_total == 0:
@@ -154,7 +167,8 @@ def main():
       f'font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">')
     a(f'<rect width="{W}" height="{H}" rx="10" fill="{BG}" stroke="{GRID}"/>')
     a(f'<text x="28" y="40" fill="{AC}" font-size="13" font-weight="700">&gt;_ AI PAIR — 쓴 것과 맡긴 범위</text>')
-    a(f'<text x="28" y="61" fill="{DIM}" font-size="11">{esc(period)}  ·  로컬 세션 기록 집계</text>')
+    win = f"최근 {args.days}일" if args.days > 0 else "전체 기간"
+    a(f'<text x="28" y="61" fill="{DIM}" font-size="11">{esc(win)} · {esc(period)}  ·  로컬 세션 기록 집계</text>')
     a(f'<text x="{W-28}" y="40" fill="{DIM}" font-size="11" text-anchor="end">≈ ${cost:,.0f} 추정 (공개 API 단가)</text>')
     a(f'<line x1="28" y1="76" x2="{W-28}" y2="76" stroke="{GRID}"/>')
 

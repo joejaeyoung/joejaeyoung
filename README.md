@@ -9,6 +9,7 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
 
 <div align="center">
   <a href="mailto:whwodud0303@naver.com"><img src="https://img.shields.io/badge/whwodud0303@naver.com-03C75A?style=flat-square&logo=naver&logoColor=white" alt="email" /></a>
+  <a href="https://www.linkedin.com/in/jaeyoung-jo-a18447306/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="linkedin" /></a>
   <img src="https://img.shields.io/badge/숭실대학교_컴퓨터학부-0B4DA2?style=flat-square" alt="school" />
   <img src="https://img.shields.io/badge/42Gyeongsan_Lv_11.24-000000?style=flat-square&logo=42&logoColor=white" alt="42" />
   <img src="https://img.shields.io/badge/SW마에스트로_17기-1f6feb?style=flat-square" alt="swm" />
@@ -79,7 +80,7 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
   <img src="https://raw.githubusercontent.com/joejaeyoung/joejaeyoung/main/ai-usage.svg" alt="AI pair usage" width="860" />
 </div>
 
-<sub>집계 스크립트는 <a href="gen_ai_usage.py"><code>gen_ai_usage.py</code></a>에 있습니다. 비용은 공개 API 단가로 환산한 추정치입니다.</sub>
+<sub>최근 30일 롤링 집계입니다. 매일 아침 8시에 로컬 launchd가 다시 돌려 갱신합니다. 집계는 <a href="gen_ai_usage.py"><code>gen_ai_usage.py</code></a>, 갱신은 <a href="update-ai-usage.sh"><code>update-ai-usage.sh</code></a>에 있습니다. 비용은 공개 API 단가로 환산한 추정치입니다.</sub>
 
 <br />
 
