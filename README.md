@@ -20,7 +20,7 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
 
 | | 프로젝트 | 남긴 것 | 코드 |
 | :--: | --- | --- | :--: |
-| 📱 | **gromo** <br/> <sub>집중시간 · 스크린타임 소셜 학습 앱</sub> | 3인 팀 팀장, App Store 운영 중 <br/> 순환 의존 **238 → 0** · user 조회 **57건 → 0** <br/> <sub>ArchUnit으로 빌드에서 강제, GCP 부하 하네스로 합격선을 코드화</sub> | <a href="https://github.com/OneOrThree">org</a> <br/> <sub>private</sub> |
+| 📱 | **gromo** <br/> <sub>집중시간 · 스크린타임 소셜 학습 앱</sub> | 3인 팀 팀장, App Store 운영 중 <br/> 순환 의존 **238 → 0** · user 조회 **57건 → 0** <br/> <sub>ArchUnit으로 빌드에서 강제, GCP 부하 하네스로 합격선을 코드화</sub> | <a href="https://docs.oneorthree.world">팀 문서</a> <br/> <a href="https://github.com/OneOrThree">org</a> <sub>private</sub> |
 | 🎟️ | **선착순 쿠폰 발급** <br/> <sub>동시성 제어 3단계 비교</sub> | p95 **967ms → 158ms** (처리량 4.2배) <br/> <sub>DB 비관적 락 → Redis 원자적 연산 → Redis + Kafka. 세 번 구현해 같은 부하로 비교, 정확성은 셋 다 동일</sub> | <a href="https://github.com/joejaeyoung/Project-coupon_rush">repo</a> |
 | 🧬 | **XV6 커널 확장 5건** <br/> <sub>파일시스템 · 메모리 · 스케줄러</sub> | 최대 파일 **70KB → 약 1GB** <br/> <sub>inode 크기는 두고 슬롯만 재배분. COW 스냅샷, 역페이지 테이블 + SW TLB, 스케줄러 2종</sub> | <a href="https://github.com/joejaeyoung/OS_Project-MultiLevelFileSystem">인덱싱</a> · <a href="https://github.com/joejaeyoung/OS_Project-SnapshotCheckpointing">스냅샷</a> <br/> <a href="https://github.com/joejaeyoung/OS_Project-PhysicalPageFrameTracking">IPT</a> · <a href="https://github.com/joejaeyoung/OS_Project-MLFQScheduling">MLFQ</a> · <a href="https://github.com/joejaeyoung/OS_Project-StrideScheduling">Stride</a> |
 | 🚌 | **아이 발자국** <br/> <sub>통학차량 승하차 알림 (K-PaaS)</sub> | 팀장, 인증 · 웹소켓 · CI/CD · 기관 웹 전담 <br/> <sub>로컬에서만 뜨던 원인이 `.env` 의존이라 환경변수 우선으로 바꾸고 CI 조건을 고정</sub> | <a href="https://github.com/rabbit-snake">org</a> |
