@@ -16,21 +16,21 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
 
 <br />
 
-## 무엇을 만들었나
+## 📦 무엇을 만들었나
 
-| 프로젝트 | 한 일 | 코드 |
-| --- | --- | :--: |
-| **gromo** <br/> 집중시간 · 스크린타임 소셜 학습 앱 | 3인 팀 팀장. App Store 출시 후 운영 중. 서버 구조를 재편해 **순환 의존 238 → 0**, 흩어진 **user 조회 57건 → 0**으로 정리하고 ArchUnit으로 빌드에서 강제했습니다. GCP 위에 부하테스트 하네스를 만들어 합격선을 verdict 코드로 고정했습니다 | [org](https://github.com/OneOrThree) <br/> `private` |
-| **선착순 쿠폰 발급** <br/> 동시성 제어 3단계 비교 | 100개 쿠폰에 1,000명이 동시에 몰릴 때 정확히 100개만 발급하는 API를 **DB 비관적 락 → Redis 원자적 연산 → Redis + Kafka 비동기**로 세 번 구현하고 같은 부하로 비교했습니다. 정확성은 셋 다 같고 **p95가 967ms → 158ms**로 줄었습니다 | [repo](https://github.com/joejaeyoung/Project-coupon_rush) |
-| **XV6 커널 확장 5건** <br/> 파일시스템 · 메모리 · 스케줄러 | inode 크기를 그대로 둔 채 슬롯만 재배분해 **최대 파일 70KB → 약 1GB**. COW 스냅샷은 WAL 트랜잭션 한계를 기능 단위로 쪼개 넘겼고, 역페이지 테이블과 소프트웨어 TLB로 프레임 소유자를 추적했습니다 | [인덱싱](https://github.com/joejaeyoung/OS_Project-MultiLevelFileSystem) · [스냅샷](https://github.com/joejaeyoung/OS_Project-SnapshotCheckpointing) · [IPT](https://github.com/joejaeyoung/OS_Project-PhysicalPageFrameTracking) · [MLFQ](https://github.com/joejaeyoung/OS_Project-MLFQScheduling) · [Stride](https://github.com/joejaeyoung/OS_Project-StrideScheduling) |
-| **아이 발자국** <br/> 통학차량 승하차 알림 (K-PaaS) | 팀장. 인증 · 유저 도메인 · 웹소켓과 CI/CD를 맡고 기관 웹을 전담했습니다. 로컬에서만 뜨던 원인이 `.env` 의존이라 환경변수 우선으로 바꾸고 CI 조건을 고정했습니다 | [org](https://github.com/rabbit-snake) |
-| **SAP MM CBO** <br/> Procure-to-Pay | 공급업체 마스터 → 구매오더 → 입고 → 송장검증을 ABAP으로 구현했습니다. 취소를 삭제가 아니라 역분개 문서로 남기고 이중 취소를 잔여 수량 합산으로 막았습니다 | [repo](https://github.com/joejaeyoung/SAP-MaterialManagement) |
-| **CompatPC** <br/> PC 부품 호환성 전문가 시스템 | 소켓 · 폼팩터를 비트마스크로 인코딩해 AND 한 번으로 호환을 판정하고, 검사마다 번호를 붙여 걸린 이유와 권장 조치를 돌려줍니다 | [repo](https://github.com/joejaeyoung/CompatPC) |
-| **42stat** <br/> 42 API 수집 · 통계 | 수집 서비스 2개의 골격과 OAuth 토큰 · 페이지네이션 · 401 리프레시를 맡았습니다. 운영 중입니다 | [repo](https://github.com/42srr/STAT_Server) |
+| | 프로젝트 | 남긴 것 | 코드 |
+| :--: | --- | --- | :--: |
+| 📱 | **gromo** <br/> <sub>집중시간 · 스크린타임 소셜 학습 앱</sub> | 3인 팀 팀장, App Store 운영 중 <br/> 순환 의존 **238 → 0** · user 조회 **57건 → 0** <br/> <sub>ArchUnit으로 빌드에서 강제, GCP 부하 하네스로 합격선을 코드화</sub> | <a href="https://github.com/OneOrThree">org</a> <br/> <sub>private</sub> |
+| 🎟️ | **선착순 쿠폰 발급** <br/> <sub>동시성 제어 3단계 비교</sub> | p95 **967ms → 158ms** (처리량 4.2배) <br/> <sub>DB 비관적 락 → Redis 원자적 연산 → Redis + Kafka. 세 번 구현해 같은 부하로 비교, 정확성은 셋 다 동일</sub> | <a href="https://github.com/joejaeyoung/Project-coupon_rush">repo</a> |
+| 🧬 | **XV6 커널 확장 5건** <br/> <sub>파일시스템 · 메모리 · 스케줄러</sub> | 최대 파일 **70KB → 약 1GB** <br/> <sub>inode 크기는 두고 슬롯만 재배분. COW 스냅샷, 역페이지 테이블 + SW TLB, 스케줄러 2종</sub> | <a href="https://github.com/joejaeyoung/OS_Project-MultiLevelFileSystem">인덱싱</a> · <a href="https://github.com/joejaeyoung/OS_Project-SnapshotCheckpointing">스냅샷</a> <br/> <a href="https://github.com/joejaeyoung/OS_Project-PhysicalPageFrameTracking">IPT</a> · <a href="https://github.com/joejaeyoung/OS_Project-MLFQScheduling">MLFQ</a> · <a href="https://github.com/joejaeyoung/OS_Project-StrideScheduling">Stride</a> |
+| 🚌 | **아이 발자국** <br/> <sub>통학차량 승하차 알림 (K-PaaS)</sub> | 팀장, 인증 · 웹소켓 · CI/CD · 기관 웹 전담 <br/> <sub>로컬에서만 뜨던 원인이 `.env` 의존이라 환경변수 우선으로 바꾸고 CI 조건을 고정</sub> | <a href="https://github.com/rabbit-snake">org</a> |
+| 🧾 | **SAP MM CBO** <br/> <sub>Procure-to-Pay</sub> | 취소를 삭제가 아니라 **역분개 문서**로 <br/> <sub>공급업체 → 구매오더 → 입고 → 송장검증을 ABAP으로. 이중 취소는 잔여 수량 합산으로 차단</sub> | <a href="https://github.com/joejaeyoung/SAP-MaterialManagement">repo</a> |
+| 🖥️ | **CompatPC** <br/> <sub>PC 부품 호환성 전문가 시스템</sub> | 소켓 · 폼팩터를 **비트마스크 AND 한 번**으로 판정 <br/> <sub>검사마다 번호를 붙여 걸린 이유와 권장 조치를 돌려줌</sub> | <a href="https://github.com/joejaeyoung/CompatPC">repo</a> |
+| 📊 | **42stat** <br/> <sub>42 API 수집 · 통계</sub> | 수집 서비스 2개 골격 · OAuth · 페이지네이션 <br/> <sub>401 리프레시 루프까지. 운영 중</sub> | <a href="https://github.com/42srr/STAT_Server">repo</a> |
 
 <br />
 
-## 쓰는 것
+## 🛠 쓰는 것
 
 **Backend**
 
@@ -38,7 +38,7 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
 
 **Infra · DevOps**
 
-<img src="https://img.shields.io/badge/Terraform-844FBA?style=flat-square&logo=terraform&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" /> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" /> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" /> <img src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white" /> <img src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white" /> <img src="https://img.shields.io/badge/k6-7D64FF?style=flat-square&logo=k6&logoColor=white" /> <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white" /> <img src="https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white" />
+<img src="https://img.shields.io/badge/Terraform-844FBA?style=flat-square&logo=terraform&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" /> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" /> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" /> <img src="https://img.shields.io/badge/AWS-FF9900?style=flat-square" /> <img src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white" /> <img src="https://img.shields.io/badge/k6-7D64FF?style=flat-square&logo=k6&logoColor=white" /> <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white" /> <img src="https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white" />
 
 **System · Mobile**
 
@@ -46,22 +46,44 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
 
 <br />
 
-## AI를 어떻게 쓰나
+## 🤖 AI를 어떻게 쓰나
 
-코드 초안과 리뷰는 맡기고, 보존 항목 · 락 등급 · 배포 순서 같은 판단은 직접 내려 PR 본문에 씁니다.
-출력은 뮤테이션 테스트, 3회 재현, 특성화 테스트로 확인합니다.
+도구를 쓴다는 말은 이제 정보가 아니라고 생각합니다. 어디까지 맡기고 어디부터 직접 판단했는지, 그리고 그 출력을 무엇으로 검증했는지가 남는 부분이라고 봅니다.
 
-아래는 실제 세션 전사를 집계한 것입니다. 읽어 들인 토큰의 96%가 캐시 재사용인데, 맥락을 매번 새로 올리지 않도록 작업 단위를 잘라 둔 결과입니다.
+**맡기는 것 / 직접 하는 것**
+
+| | |
+| --- | --- |
+| 맡김 | 코드 초안, 리팩터링 후보 찾기, 반복 수정, 1차 리뷰 |
+| 직접 | 보존해야 할 항목이 무엇인지, 락 등급, 배포 순서, 롤백 경로, 무엇을 안 할지 |
+
+판단은 PR 본문에 제가 씁니다. 남는 건 도구 이름이 아니라 그 문장입니다.
+
+**검증 방법**
+
+- **뮤테이션** — 조회 계층을 옮긴 뒤 예외 코드를 일부러 바꾸고 배타 락을 내려봤는데 테스트 1,895건이 전부 초록이었습니다. 통과가 보존을 뜻하지 않는다는 뜻이라, 전용 테스트 9건을 추가해 락 소실 2건과 예외 변조 1건이 잡히는 것까지 확인했습니다.
+- **3회 재현** — 돈 경로 결함 3건은 옛 동작을 임시로 되살려 3회 모두 실패하는 것을 본 뒤에 고쳤습니다.
+- **특성화 테스트** — 1,792줄 화면에서 세션 엔진을 떼어낼 때, 손대기 전에 현재 동작을 9테스트 · 8계약으로 먼저 고정하고 이식 후 diff 0을 확인했습니다.
+
+**AI가 틀렸고 제가 잡은 것**
+
+> 기관 웹 화면은 생성 코드로 시작했는데, API 주소를 빌드 시점에 박아 넣는 구조였습니다. 로컬에서는 멀쩡했고 배포 후 요청이 `localhost`로 나가면서 드러났습니다. 런타임 주입이 정적 빌드 산출물에 안 먹는 게 원인이라 빌드 인자로 바꾸고, 같은 문제가 웹소켓 주소에서 재발하자 트러블슈팅 문서로 남겼습니다.
+
+> 쿠폰 프로젝트에서는 1단계 동시성 테스트가 2 · 3단계로 복사돼 있었습니다. Redis 초기화가 빠져 전부 탈락하는 상태였고, 예외를 세지 않아 출력이 "성공 100 · 실패 0"으로 찍혀 나머지 900건이 사라져 보였습니다. `성공 + 탈락 == 1000` 단언을 넣어 삼켜진 예외가 없는지부터 확인하게 고쳤습니다.
+
+**실제 사용량**
+
+아래는 로컬 세션 기록을 집계한 것입니다. 쓰는 쪽에 토큰이 몰리고 검토는 적은 횟수로 도는데, 되돌린 판단은 대부분 그 적은 쪽에서 나왔습니다.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/joejaeyoung/joejaeyoung/main/ai-usage.svg" alt="AI coding usage" width="820" />
+  <img src="https://raw.githubusercontent.com/joejaeyoung/joejaeyoung/main/ai-usage.svg" alt="AI pair usage" width="860" />
 </div>
 
-<sub>집계 스크립트는 [`gen_ai_usage.py`](gen_ai_usage.py)에 있습니다. 비용은 공개 API 단가로 환산한 추정치입니다.</sub>
+<sub>집계 스크립트는 <a href="gen_ai_usage.py"><code>gen_ai_usage.py</code></a>에 있습니다. 비용은 공개 API 단가로 환산한 추정치입니다.</sub>
 
 <br />
 
-## 활동
+## 📈 활동
 
 <div align="center">
   <img src="https://ghchart.rshah.org/1f6feb/joejaeyoung" alt="contributions" width="780" />
@@ -70,8 +92,4 @@ SW마에스트로 17기에서 3인 팀의 서버 · 인프라 · 앱 네이티�
 <div align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=joejaeyoung&theme=github_dark" height="180" />
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=joejaeyoung&theme=github_dark" height="180" />
-</div>
-
-<div align="center">
-  <a href="https://solved.ac/gguldanji_pooh"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=gguldanji_pooh" alt="solved.ac" height="150" /></a>
 </div>
