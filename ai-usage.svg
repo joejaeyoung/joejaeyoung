@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="418" viewBox="0 0 820 418" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<rect width="820" height="418" rx="10" fill="#0d1117" stroke="#21262d"/>
+<text x="28" y="42" fill="#58a6ff" font-size="13" font-weight="700">&gt;_ AI CODING USAGE</text>
+<text x="28" y="64" fill="#8b949e" font-size="12">2026.07.03 – 2026.09.13  ·  Claude Code 세션 전사 집계</text>
+<text x="792" y="42" fill="#8b949e" font-size="12" text-anchor="end">≈ $57,557 (공개 단가 추정)</text>
+<line x1="28" y1="80" x2="792" y2="80" stroke="#21262d"/>
+<text x="28" y="122" fill="#e6edf3" font-size="28" font-weight="700">138</text>
+<text x="28" y="142" fill="#8b949e" font-size="11" letter-spacing="1">SESSIONS</text>
+<text x="219" y="122" fill="#e6edf3" font-size="28" font-weight="700">97.9K</text>
+<text x="219" y="142" fill="#8b949e" font-size="11" letter-spacing="1">REQUESTS</text>
+<text x="410" y="122" fill="#e6edf3" font-size="28" font-weight="700">36</text>
+<text x="410" y="142" fill="#8b949e" font-size="11" letter-spacing="1">ACTIVE DAYS</text>
+<text x="601" y="122" fill="#e6edf3" font-size="28" font-weight="700">25.5B</text>
+<text x="601" y="142" fill="#8b949e" font-size="11" letter-spacing="1">TOKENS</text>
+<text x="28" y="182" fill="#8b949e" font-size="11" letter-spacing="1">TOKEN MIX</text>
+<rect x="28.0" y="192" width="735.2" height="16" fill="#58a6ff"/>
+<rect x="763.2" y="192" width="25.8" height="16" fill="#3fb950"/>
+<rect x="789.0" y="192" width="2.7" height="16" fill="#d29922"/>
+<rect x="791.8" y="192" width="1.2" height="16" fill="#f85149"/>
+<rect x="28" y="192" width="764" height="16" rx="3" fill="none" stroke="#21262d"/>
+<rect x="28" y="228" width="9" height="9" rx="2" fill="#58a6ff"/>
+<text x="42" y="237" fill="#8b949e" font-size="11">read 96.24%</text>
+<rect x="158" y="228" width="9" height="9" rx="2" fill="#3fb950"/>
+<text x="172" y="237" fill="#8b949e" font-size="11">write 3.38%</text>
+<rect x="288" y="228" width="9" height="9" rx="2" fill="#d29922"/>
+<text x="302" y="237" fill="#8b949e" font-size="11">out 0.36%</text>
+<rect x="418" y="228" width="9" height="9" rx="2" fill="#f85149"/>
+<text x="432" y="237" fill="#8b949e" font-size="11">in 0.03%</text>
+<text x="792" y="237" fill="#e6edf3" font-size="11" text-anchor="end">캐시 재사용 28.5× — 새로 만든 토큰 1당 다시 읽은 토큰</text>
+<text x="28" y="278" fill="#8b949e" font-size="11" letter-spacing="1">BY MODEL</text>
+<text x="28" y="300" fill="#e6edf3" font-size="12">opus-5</text>
+<rect x="200" y="290" width="390" height="11" rx="2" fill="#58a6ff" opacity="1.00"/>
+<text x="670" y="300" fill="#8b949e" font-size="11" text-anchor="end">18.1B tok</text>
+<text x="792" y="300" fill="#8b949e" font-size="11" text-anchor="end">68,043 req</text>
+<text x="28" y="324" fill="#e6edf3" font-size="12">fable-5</text>
+<rect x="200" y="314" width="103" height="11" rx="2" fill="#58a6ff" opacity="0.80"/>
+<text x="670" y="324" fill="#8b949e" font-size="11" text-anchor="end">4.8B tok</text>
+<text x="792" y="324" fill="#8b949e" font-size="11" text-anchor="end">18,352 req</text>
+<text x="28" y="348" fill="#e6edf3" font-size="12">sonnet-5</text>
+<rect x="200" y="338" width="29" height="11" rx="2" fill="#58a6ff" opacity="0.60"/>
+<text x="670" y="348" fill="#8b949e" font-size="11" text-anchor="end">1.3B tok</text>
+<text x="792" y="348" fill="#8b949e" font-size="11" text-anchor="end">8,314 req</text>
+<text x="28" y="372" fill="#e6edf3" font-size="12">fable-5-1</text>
+<rect x="200" y="362" width="28" height="11" rx="2" fill="#58a6ff" opacity="0.40"/>
+<text x="670" y="372" fill="#8b949e" font-size="11" text-anchor="end">1.3B tok</text>
+<text x="792" y="372" fill="#8b949e" font-size="11" text-anchor="end">2,969 req</text>
+<text x="28" y="404" fill="#8b949e" font-size="10" opacity="0.75">비용은 공개 API 단가 기준 추정이며 구독 실지출과 다릅니다 · gen_ai_usage.py 로 재생성</text>
+</svg>
