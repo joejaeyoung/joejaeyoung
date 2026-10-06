@@ -1,69 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="508" viewBox="0 0 860 508" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
 <rect width="860" height="508" rx="10" fill="#0d1117" stroke="#21262d"/>
 <text x="28" y="40" fill="#58a6ff" font-size="13" font-weight="700">&gt;_ AI PAIR — 쓴 것과 맡긴 범위</text>
-<text x="28" y="61" fill="#8b949e" font-size="11">최근 30일 · 2026.09.07 – 2026.10.05  ·  로컬 세션 기록 집계</text>
-<text x="832" y="40" fill="#8b949e" font-size="11" text-anchor="end">≈ $50,218 추정 (공개 API 단가)</text>
+<text x="28" y="61" fill="#8b949e" font-size="11">최근 30일 · 2026.09.08 – 2026.10.06  ·  로컬 세션 기록 집계</text>
+<text x="832" y="40" fill="#8b949e" font-size="11" text-anchor="end">≈ $51,189 추정 (공개 API 단가)</text>
 <line x1="28" y1="76" x2="832" y2="76" stroke="#21262d"/>
 <rect x="28" y="92" width="390" height="112" rx="7" fill="#11161d" stroke="#21262d"/>
 <rect x="28" y="92" width="3" height="112" rx="2" fill="#58a6ff"/>
 <text x="44" y="114" fill="#58a6ff" font-size="12" font-weight="700">CLAUDE CODE</text>
 <text x="402" y="114" fill="#8b949e" font-size="11" text-anchor="end">초안 · 구현</text>
-<text x="44" y="152" fill="#e6edf3" font-size="21" font-weight="700">123</text>
+<text x="44" y="152" fill="#e6edf3" font-size="21" font-weight="700">125</text>
 <text x="44" y="171" fill="#8b949e" font-size="10">sessions</text>
 <text x="163" y="152" fill="#e6edf3" font-size="21" font-weight="700">83.3K</text>
 <text x="163" y="171" fill="#8b949e" font-size="10">requests</text>
-<text x="283" y="152" fill="#e6edf3" font-size="21" font-weight="700">23.5B</text>
+<text x="283" y="152" fill="#e6edf3" font-size="21" font-weight="700">23.7B</text>
 <text x="283" y="171" fill="#8b949e" font-size="10">tokens</text>
 <line x1="44" y1="180" x2="402" y2="180" stroke="#21262d"/>
-<text x="44" y="196" fill="#8b949e" font-size="10">누적 132 sessions · 26.6B tokens</text>
+<text x="44" y="196" fill="#8b949e" font-size="10">누적 135 sessions · 27.1B tokens</text>
 <rect x="442" y="92" width="390" height="112" rx="7" fill="#11161d" stroke="#21262d"/>
 <rect x="442" y="92" width="3" height="112" rx="2" fill="#3fb950"/>
 <text x="458" y="114" fill="#3fb950" font-size="12" font-weight="700">CODEX</text>
 <text x="816" y="114" fill="#8b949e" font-size="11" text-anchor="end">리뷰 · 반증</text>
 <text x="458" y="152" fill="#e6edf3" font-size="21" font-weight="700">4</text>
 <text x="458" y="171" fill="#8b949e" font-size="10">sessions</text>
-<text x="577" y="152" fill="#e6edf3" font-size="21" font-weight="700">11</text>
+<text x="577" y="152" fill="#e6edf3" font-size="21" font-weight="700">26</text>
 <text x="577" y="171" fill="#8b949e" font-size="10">turns</text>
-<text x="697" y="152" fill="#e6edf3" font-size="21" font-weight="700">38.8M</text>
+<text x="697" y="152" fill="#e6edf3" font-size="21" font-weight="700">49.5M</text>
 <text x="697" y="171" fill="#8b949e" font-size="10">tokens</text>
 <line x1="458" y1="180" x2="816" y2="180" stroke="#21262d"/>
-<text x="458" y="196" fill="#8b949e" font-size="10">누적 42 sessions · 388M tokens</text>
+<text x="458" y="196" fill="#8b949e" font-size="10">누적 42 sessions · 399M tokens</text>
 <text x="28" y="232" fill="#8b949e" font-size="10" letter-spacing="1">토큰 배분 — 쓰는 데 몰리고, 검토는 적은 횟수로 정확히</text>
-<rect x="28" y="242" width="802.7" height="13" rx="2" fill="#58a6ff"/>
-<rect x="830.7" y="242" width="2.0" height="13" rx="2" fill="#3fb950"/>
-<text x="28" y="274" fill="#8b949e" font-size="10">Claude 99.84%  ·  Codex 0.16%  (누적 Codex 1.4%) — 리뷰는 토큰을 적게 쓰지만 되돌린 판단은 여기서 나온다</text>
+<rect x="28" y="242" width="802.3" height="13" rx="2" fill="#58a6ff"/>
+<rect x="830.3" y="242" width="2.0" height="13" rx="2" fill="#3fb950"/>
+<text x="28" y="274" fill="#8b949e" font-size="10">Claude 99.79%  ·  Codex 0.21%  (누적 Codex 1.5%) — 리뷰는 토큰을 적게 쓰지만 되돌린 판단은 여기서 나온다</text>
 <text x="28" y="310" fill="#8b949e" font-size="10" letter-spacing="1">CLAUDE 토큰 구성</text>
-<rect x="28.0" y="320" width="776.1" height="13" fill="#58a6ff"/>
-<rect x="804.1" y="320" width="25.4" height="13" fill="#3fb950"/>
-<rect x="829.5" y="320" width="2.5" height="13" fill="#d29922"/>
+<rect x="28.0" y="320" width="775.7" height="13" fill="#58a6ff"/>
+<rect x="803.7" y="320" width="25.7" height="13" fill="#3fb950"/>
+<rect x="829.4" y="320" width="2.6" height="13" fill="#d29922"/>
 <rect x="832.0" y="320" width="1.2" height="13" fill="#f85149"/>
 <rect x="28" y="320" width="804" height="13" rx="2" fill="none" stroke="#21262d"/>
 <rect x="28" y="349" width="8" height="8" rx="2" fill="#58a6ff"/>
-<text x="40" y="357" fill="#8b949e" font-size="10">read 96.53%</text>
+<text x="40" y="357" fill="#8b949e" font-size="10">read 96.49%</text>
 <rect x="140" y="349" width="8" height="8" rx="2" fill="#3fb950"/>
-<text x="152" y="357" fill="#8b949e" font-size="10">write 3.16%</text>
+<text x="152" y="357" fill="#8b949e" font-size="10">write 3.19%</text>
 <rect x="252" y="349" width="8" height="8" rx="2" fill="#d29922"/>
-<text x="264" y="357" fill="#8b949e" font-size="10">out 0.31%</text>
+<text x="264" y="357" fill="#8b949e" font-size="10">out 0.32%</text>
 <rect x="364" y="349" width="8" height="8" rx="2" fill="#f85149"/>
 <text x="376" y="357" fill="#8b949e" font-size="10">in 0.00%</text>
-<text x="832" y="357" fill="#e6edf3" font-size="10" text-anchor="end">캐시 재사용 30.5× — 맥락을 다시 올리지 않게 작업을 잘라 둔 결과</text>
+<text x="832" y="357" fill="#e6edf3" font-size="10" text-anchor="end">캐시 재사용 30.2× — 맥락을 다시 올리지 않게 작업을 잘라 둔 결과</text>
 <text x="28" y="394" fill="#8b949e" font-size="10" letter-spacing="1">CLAUDE 모델별</text>
 <text x="28" y="414" fill="#e6edf3" font-size="11">opus-5</text>
 <rect x="190" y="405" width="400" height="10" rx="2" fill="#58a6ff" opacity="1.00"/>
-<text x="720" y="414" fill="#8b949e" font-size="10" text-anchor="end">16.8B tok</text>
-<text x="832" y="414" fill="#8b949e" font-size="10" text-anchor="end">56,592 req</text>
+<text x="720" y="414" fill="#8b949e" font-size="10" text-anchor="end">16.6B tok</text>
+<text x="832" y="414" fill="#8b949e" font-size="10" text-anchor="end">55,381 req</text>
 <text x="28" y="434" fill="#e6edf3" font-size="11">fable-5-1</text>
-<rect x="190" y="425" width="67" height="10" rx="2" fill="#58a6ff" opacity="0.80"/>
-<text x="720" y="434" fill="#8b949e" font-size="10" text-anchor="end">2.8B tok</text>
-<text x="832" y="434" fill="#8b949e" font-size="10" text-anchor="end">7,521 req</text>
+<rect x="190" y="425" width="77" height="10" rx="2" fill="#58a6ff" opacity="0.80"/>
+<text x="720" y="434" fill="#8b949e" font-size="10" text-anchor="end">3.2B tok</text>
+<text x="832" y="434" fill="#8b949e" font-size="10" text-anchor="end">8,493 req</text>
 <text x="28" y="454" fill="#e6edf3" font-size="11">opus-5-5</text>
-<rect x="190" y="445" width="55" height="10" rx="2" fill="#58a6ff" opacity="0.60"/>
-<text x="720" y="454" fill="#8b949e" font-size="10" text-anchor="end">2.3B tok</text>
-<text x="832" y="454" fill="#8b949e" font-size="10" text-anchor="end">7,199 req</text>
+<rect x="190" y="445" width="57" height="10" rx="2" fill="#58a6ff" opacity="0.60"/>
+<text x="720" y="454" fill="#8b949e" font-size="10" text-anchor="end">2.4B tok</text>
+<text x="832" y="454" fill="#8b949e" font-size="10" text-anchor="end">7,617 req</text>
 <text x="28" y="474" fill="#e6edf3" font-size="11">sonnet-5</text>
 <rect x="190" y="465" width="38" height="10" rx="2" fill="#58a6ff" opacity="0.40"/>
 <text x="720" y="474" fill="#8b949e" font-size="10" text-anchor="end">1.6B tok</text>
-<text x="832" y="474" fill="#8b949e" font-size="10" text-anchor="end">11,827 req</text>
-<text x="832" y="394" fill="#8b949e" font-size="10" text-anchor="end">CODEX: gpt-6-astra</text>
+<text x="832" y="474" fill="#8b949e" font-size="10" text-anchor="end">11,667 req</text>
+<text x="832" y="394" fill="#8b949e" font-size="10" text-anchor="end">CODEX: gpt-6-astra · gpt-6-sol</text>
 <text x="28" y="494" fill="#8b949e" font-size="9" opacity="0.7">비용은 공개 API 단가 기준 추정이며 구독 실지출과 다릅니다 · gen_ai_usage.py 로 재생성</text>
 </svg>
